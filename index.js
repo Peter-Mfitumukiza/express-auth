@@ -1,6 +1,7 @@
 require("./utils/dbConnection");
 const express = require('express');
 const dotenv = require('dotenv');
+const authRoutes = require('./routes/auth.routes');
 
 const app = express();
 dotenv.config();
@@ -8,6 +9,7 @@ dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use("/auth", authRoutes )
 
 
 app.listen(process.env.PORT, ()=>{
